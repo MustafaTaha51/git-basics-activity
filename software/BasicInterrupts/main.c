@@ -22,20 +22,20 @@ int main(void)
     while (1)
     {
    	// check flags
-    	if (flag_up &flag_down){ // if both high
-    		flag_up=0;
-    		flag_down =0;
+    	if (flag_up & flag_down){ // if both high
+    		flag_up = 0;
+    		flag_down = 0;
     	}
     	if (flag_up){
-    		counter++;
+    		counter =+ 2;
     		flag_up = 0; //reset
     	}
     	if (flag_down){
-    		counter--;
+    		counter =- 2;
     		flag_down = 0; // reset
     	}
     	IOWR(LEDR_BASE,0,counter);
-    	for (int i =0; i<50000; i++){
+    	for (int i = 0; i < 50000; i++){
     		asm ( "nop" );
     	}
 
